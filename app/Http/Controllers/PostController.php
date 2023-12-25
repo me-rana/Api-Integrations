@@ -37,10 +37,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post, $id)
+    public function show(Post $post)
     {
         //
-        $post = Post::where('id',$id)->first();
         return response()->json([
             'post' => $post
         ]);
@@ -49,10 +48,9 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
-        $post = Post::where('id', $id)->first();
         $post->name = $request->name;
         $post->description = $request->description;
         $post->update();
@@ -66,10 +64,9 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
         //
-        $post = Post::where('id', $id)->first();
         $post->delete();
         return response()->json([
             'message' => 'Post deleted Successfully',

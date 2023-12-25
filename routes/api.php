@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('posts',[PostController::class, 'index'])->name('Posts Api');
 Route::post('posts', [PostController::class, 'store'])->name('Store Post');
-Route::get('post/{id}', [PostController::class, 'show'])->name('Single Post');
-Route::put('post/{id}', [PostController::class, 'update'])->name('Update Post');
-Route::delete('postdelete/{id}', [PostController::class, 'destroy'])->name('Delete Post');
+Route::get('post/{post}', [PostController::class, 'show'])->name('Single Post');
+Route::put('post/{post}', [PostController::class, 'update'])->name('Update Post');
+Route::delete('postdelete/{post}', [PostController::class, 'destroy'])->name('Delete Post');
